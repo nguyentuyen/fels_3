@@ -1,0 +1,21 @@
+<% provide(:title, 'Start lesson') %>
+<h1><%= "Start Lesson #{@lesson.id}" %></h1>
+
+<%= form_for [@lesson, @result] do |f| %>
+  <%= f.hidden_field :lesson_id, value: params[:lesson_id] %>
+  <%= f.hidden_field :word_id, value: @word.id %>
+  <div class="row">
+    <aside class="span4">
+      <h3><%= @word.word %><h3>
+    </aside>
+    
+    <aside class="span4">
+      <% @options.each do |option| %>
+        <%= radio_button_tag :option_id, option.id %>
+        <%= option.answer %>
+        <br>
+      <% end %>
+    </aside>
+  </div>
+  <%= f.submit "Next", class: "btn btn-large btn-primary" %>
+<% end %>

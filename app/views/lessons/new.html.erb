@@ -1,2 +1,22 @@
-<h1>Lessons#new</h1>
-<p>Find me in app/views/lessons/new.html.erb</p>
+<% provide(:title, 'Start lesson') %>
+<h1>Start lesson</h1>
+<div class="row">
+  <%= form_for(@lesson) do |f| %>
+    <%= f.hidden_field :category_id, value: params[:category_id] %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.fields_for :results, @lesson.results do |builder| %>
+      <div class="span6">
+        <%= @word.name %>
+      </div>
+      <div class="span6">
+        <% @options.each do |option| %>
+          <%= radio_button_tag :option_id, option.id %>
+          <%= option.answer %>
+          <br>
+        <% end %>
+      </div>  
+    <% end %>
+    <%= f.submit "Next", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
+

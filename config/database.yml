@@ -10,7 +10,7 @@ development:
   database: FeLS
   pool: 5
   username: root
-  password: "colen12"
+  password: "741852"
   socket: /var/run/mysqld/mysqld.sock
 
 test:
@@ -20,7 +20,7 @@ test:
   database: FeLS_test
   pool: 5
   username: root
-  password: "colen12"
+  password: "741852"
   socket: /var/run/mysqld/mysqld.sock
 
 production:

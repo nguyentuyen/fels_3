@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140505071923) do
   create_table "results", force: true do |t|
     t.integer  "lesson_id"
     t.integer  "word_id"
-    t.integer  "choosen"
+    t.integer  "option_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

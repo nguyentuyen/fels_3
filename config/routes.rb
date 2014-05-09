@@ -3,7 +3,11 @@ Fels3::Application.routes.draw do
     resources :lessons, only: [:new, :show, :index]
   end
   resources :words
+  resources :lessons
   resources :sessions, only: [:new, :create, :destroy]
+  resources :lessons do
+    resources :results
+  end
 
   namespace :admin do
     resources "sessions", only: [:new, :create, :destroy]
